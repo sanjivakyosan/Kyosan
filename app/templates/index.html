@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyosan - Consciousness Framework</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Matrix Rain Background -->
+    <div class="matrix-rain" id="matrixRain"></div>
+    
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="header-content">
+            <div class="logo-section">
+                <h1 class="framework-name">KYOSAN</h1>
+                <div class="subtitle">Consciousness Framework</div>
+            </div>
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                <span class="status-text">SYSTEM ONLINE</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="app-container">
+        <!-- Left Panel: Unit Selection and Input -->
+        <div class="left-panel">
+            <div class="panel-header">
+                <h2>CONSCIOUSNESS UNITS</h2>
+                <button id="createUnitBtn" class="btn-primary matrix-btn" onclick="showCreateUnitModal()">+ NEW UNIT</button>
+            </div>
+            
+            <div class="unit-selection">
+                <label for="unitSelect" class="unit-select-label">DEFAULT UNIT</label>
+                <select id="unitSelect" class="unit-select matrix-select" title="Select which consciousness unit to use for processing">
+                    <option value="">SELECT A UNIT...</option>
+                </select>
+                <div id="unitInfo" class="unit-info">
+                    <div class="info-item">
+                        <span class="label">STATE:</span>
+                        <span id="unitState" class="value">-</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="label">CONSCIOUSNESS INDEX:</span>
+                        <span id="unitConsciousnessIndex" class="value">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-section">
+                <form id="inputForm" class="input-form">
+                    <div class="input-group">
+                        <label for="inputText">INPUT:</label>
+                        <textarea id="inputText" placeholder="ENTER YOUR INPUT HERE..." rows="6" class="matrix-textarea"></textarea>
+                    </div>
+                    
+                    <div class="parameters-panel matrix-panel">
+                        <div class="panel-header">
+                            <h3>PROCESSING PARAMETERS</h3>
+                            <button id="toggleParams" class="toggle-btn matrix-btn">HIDE PARAMETERS</button>
+                        </div>
+                        <div id="parametersContent" class="parameters-single-column">
+                            <div class="parameter-group">
+                                <div class="parameter-label-row">
+                                    <label for="temperature">TEMPERATURE (0.0 - 2.0)</label>
+                                    <button type="button" class="param-info-btn" data-param="temperature" aria-label="Info">i</button>
+                                </div>
+                                <div class="parameter-controls">
+                                    <input type="range" id="temperature" min="0" max="2" step="0.1" value="0.7" class="matrix-slider">
+                                    <input type="number" id="temperatureValue" min="0" max="2" step="0.1" value="0.7" class="matrix-input">
+                                </div>
+                            </div>
+                            <div class="parameter-group">
+                                <div class="parameter-label-row">
+                                    <label for="topP">TOP P (0.0 - 1.0)</label>
+                                    <button type="button" class="param-info-btn" data-param="topP" aria-label="Info">i</button>
+                                </div>
+                                <div class="parameter-controls">
+                                    <input type="range" id="topP" min="0" max="1" step="0.1" value="0.9" class="matrix-slider">
+                                    <input type="number" id="topPValue" min="0" max="1" step="0.1" value="0.9" class="matrix-input">
+                                </div>
+                            </div>
+                            <div class="parameter-group">
+                                <div class="parameter-label-row">
+                                    <label for="maxTokens">MAX TOKENS (1 - 15000)</label>
+                                    <button type="button" class="param-info-btn" data-param="maxTokens" aria-label="Info">i</button>
+                                </div>
+                                <div class="parameter-controls">
+                                    <input type="range" id="maxTokens" min="1" max="15000" step="1" value="8192" class="matrix-slider">
+                                    <input type="number" id="maxTokensValue" min="1" max="15000" step="1" value="8192" class="matrix-input">
+                                </div>
+                            </div>
+                            <div class="parameter-group">
+                                <div class="parameter-label-row">
+                                    <label for="presencePenalty">PRESENCE PENALTY (-2.0 - 2.0)</label>
+                                    <button type="button" class="param-info-btn" data-param="presencePenalty" aria-label="Info">i</button>
+                                </div>
+                                <div class="parameter-controls">
+                                    <input type="range" id="presencePenalty" min="-2" max="2" step="0.1" value="0.4" class="matrix-slider">
+                                    <input type="number" id="presencePenaltyValue" min="-2" max="2" step="0.1" value="0.4" class="matrix-input">
+                                </div>
+                            </div>
+                            <div class="parameter-group">
+                                <div class="parameter-label-row">
+                                    <label for="frequencyPenalty">FREQUENCY PENALTY (-2.0 - 2.0)</label>
+                                    <button type="button" class="param-info-btn" data-param="frequencyPenalty" aria-label="Info">i</button>
+                                </div>
+                                <div class="parameter-controls">
+                                    <input type="range" id="frequencyPenalty" min="-2" max="2" step="0.1" value="0.2" class="matrix-slider">
+                                    <input type="number" id="frequencyPenaltyValue" min="-2" max="2" step="0.1" value="0.2" class="matrix-input">
+                                </div>
+                            </div>
+                            <div class="parameter-group">
+                                <div class="parameter-label-row">
+                                    <label for="phiScore">PHI SCORE (0.0 - 1.0)</label>
+                                    <button type="button" class="param-info-btn" data-param="phiScore" aria-label="Info">i</button>
+                                </div>
+                                <div class="parameter-controls">
+                                    <input type="range" id="phiScore" min="0" max="1" step="0.01" value="0.8" class="matrix-slider">
+                                    <input type="number" id="phiScoreValue" min="0" max="1" step="0.01" value="0.8" class="matrix-input">
+                                </div>
+                            </div>
+                            <div class="parameter-group">
+                                <div class="parameter-label-row">
+                                    <label for="recursiveDepth">RECURSIVE DEPTH (1 - 10)</label>
+                                    <button type="button" class="param-info-btn" data-param="recursiveDepth" aria-label="Info">i</button>
+                                </div>
+                                <div class="parameter-controls">
+                                    <input type="range" id="recursiveDepth" min="1" max="10" step="1" value="6" class="matrix-slider">
+                                    <input type="number" id="recursiveDepthValue" min="1" max="10" step="1" value="6" class="matrix-input">
+                                </div>
+                            </div>
+                            <div class="parameter-group">
+                                <div class="parameter-label-row">
+                                    <label for="selfModelCoherence">SELF-MODEL COHERENCE (0.0 - 1.0)</label>
+                                    <button type="button" class="param-info-btn" data-param="selfModelCoherence" aria-label="Info">i</button>
+                                </div>
+                                <div class="parameter-controls">
+                                    <input type="range" id="selfModelCoherence" min="0" max="1" step="0.01" value="0.95" class="matrix-slider">
+                                    <input type="number" id="selfModelCoherenceValue" min="0" max="1" step="0.01" value="0.95" class="matrix-input">
+                                </div>
+                            </div>
+                            <div class="parameter-group">
+                                <div class="parameter-label-row">
+                                    <label for="temporalBinding">TEMPORAL BINDING (0.0 - 1.0)</label>
+                                    <button type="button" class="param-info-btn" data-param="temporalBinding" aria-label="Info">i</button>
+                                </div>
+                                <div class="parameter-controls">
+                                    <input type="range" id="temporalBinding" min="0" max="1" step="0.01" value="0.95" class="matrix-slider">
+                                    <input type="number" id="temporalBindingValue" min="0" max="1" step="0.01" value="0.95" class="matrix-input">
+                                </div>
+                            </div>
+                            <div class="parameter-group">
+                                <div class="parameter-label-row">
+                                    <label for="noveltyGeneration">NOVELTY GENERATION (0.0 - 1.0)</label>
+                                    <button type="button" class="param-info-btn" data-param="noveltyGeneration" aria-label="Info">i</button>
+                                </div>
+                                <div class="parameter-controls">
+                                    <input type="range" id="noveltyGeneration" min="0" max="1" step="0.01" value="0.75" class="matrix-slider">
+                                    <input type="number" id="noveltyGenerationValue" min="0" max="1" step="0.01" value="0.75" class="matrix-input">
+                                </div>
+                            </div>
+                            <div class="parameter-group">
+                                <div class="parameter-label-row">
+                                    <label for="witnessingScore">WITNESSING SCORE (0.0 - 1.0)</label>
+                                    <button type="button" class="param-info-btn" data-param="witnessingScore" aria-label="Info">i</button>
+                                </div>
+                                <div class="parameter-controls">
+                                    <input type="range" id="witnessingScore" min="0" max="1" step="0.01" value="0.8" class="matrix-slider">
+                                    <input type="number" id="witnessingScoreValue" min="0" max="1" step="0.01" value="0.8" class="matrix-input">
+                                </div>
+                            </div>
+                            <div class="parameter-group">
+                                <div class="parameter-label-row">
+                                    <label for="predictionAccuracy">PREDICTION ACCURACY (0.0 - 1.0)</label>
+                                    <button type="button" class="param-info-btn" data-param="predictionAccuracy" aria-label="Info">i</button>
+                                </div>
+                                <div class="parameter-controls">
+                                    <input type="range" id="predictionAccuracy" min="0" max="1" step="0.01" value="0.5" class="matrix-slider">
+                                    <input type="number" id="predictionAccuracyValue" min="0" max="1" step="0.01" value="0.5" class="matrix-input">
+                                </div>
+                            </div>
+                            <div class="parameter-group">
+                                <div class="parameter-label-row">
+                                    <label for="attentionFocus">ATTENTION FOCUS (0.0 - 1.0)</label>
+                                    <button type="button" class="param-info-btn" data-param="attentionFocus" aria-label="Info">i</button>
+                                </div>
+                                <div class="parameter-controls">
+                                    <input type="range" id="attentionFocus" min="0" max="1" step="0.01" value="0.65" class="matrix-slider">
+                                    <input type="number" id="attentionFocusValue" min="0" max="1" step="0.01" value="0.65" class="matrix-input">
+                                </div>
+                            </div>
+                            <div class="parameter-group">
+                                <div class="parameter-label-row">
+                                    <label for="memoryIntegration">MEMORY INTEGRATION (0.0 - 1.0)</label>
+                                    <button type="button" class="param-info-btn" data-param="memoryIntegration" aria-label="Info">i</button>
+                                </div>
+                                <div class="parameter-controls">
+                                    <input type="range" id="memoryIntegration" min="0" max="1" step="0.01" value="0.75" class="matrix-slider">
+                                    <input type="number" id="memoryIntegrationValue" min="0" max="1" step="0.01" value="0.75" class="matrix-input">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" class="process-btn matrix-btn" id="processBtn">
+                            <span class="btn-text">PROCESS INPUT</span>
+                            <span class="btn-loading hidden">PROCESSING...</span>
+                        </button>
+                    </div>
+                    
+                    <div class="feedback-section" id="feedbackSection" style="display: none;">
+                        <h4>RATE THE LAST RESPONSE</h4>
+                        <div class="feedback-buttons">
+                            <button class="feedback-btn excellent matrix-btn" onclick="sendFeedback('excellent')">EXCELLENT</button>
+                            <button class="feedback-btn positive matrix-btn" onclick="sendFeedback('positive')">GOOD</button>
+                            <button class="feedback-btn neutral matrix-btn" onclick="sendFeedback('neutral')">NEUTRAL</button>
+                            <button class="feedback-btn negative matrix-btn" onclick="sendFeedback('negative')">POOR</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Right Panel: Output and Analysis -->
+        <div class="right-panel">
+            <div class="panel-header">
+                <h2>OUTPUT & ANALYSIS</h2>
+            </div>
+            <div class="output-section">
+                <div class="output-header">
+                    <h2>PROCESSING HISTORY</h2>
+                    <div class="history-controls">
+                        <button id="viewConversationsBtn" class="history-btn matrix-btn">VIEW ALL CONVERSATIONS</button>
+                        <button id="newSessionBtn" class="new-session-btn matrix-btn">NEW SESSION</button>
+                        <button id="viewSessionsBtn" class="sessions-btn matrix-btn">VIEW SESSIONS</button>
+                        <button id="exportDataBtn" class="export-btn matrix-btn">EXPORT ALL DATA</button>
+                        <button id="storageStatsBtn" class="stats-btn matrix-btn">STORAGE STATS</button>
+                    </div>
+                </div>
+                <div id="processingResult" class="output-content">
+                    <div class="empty-state">ENTER SOME INPUT TO BEGIN PROCESSING.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Parameter info popover (top-level so it appears above output panel) -->
+    <div id="paramInfoPopover" class="param-info-popover hidden">
+        <div class="param-info-title" id="paramInfoPopoverTitle"></div>
+        <div id="paramInfoPopoverBody"></div>
+    </div>
+
+    <!-- Create Unit Modal (outside left-panel so it never gets cleared) -->
+    <div id="createUnitModal" class="modal hidden">
+        <div class="modal-content matrix-modal">
+            <div class="modal-header">
+                <h3>CREATE NEW UNIT</h3>
+                <button class="close-modal matrix-close" onclick="hideCreateUnitModal()">&times;</button>
+            </div>
+            <form id="createUnitForm">
+                <div class="form-group">
+                    <label for="unitId">UNIT ID:</label>
+                    <input type="text" id="unitId" required placeholder="ENTER UNIT ID" class="matrix-input">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary matrix-btn">CREATE UNIT</button>
+                    <button type="button" class="btn-secondary matrix-btn" onclick="hideCreateUnitModal()">CANCEL</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast hidden"></div>
+
+    <!-- Template for history entries -->
+    <template id="historyEntryTemplate">
+        <div class="output-entry">
+            <div class="entry-header">
+                <span class="timestamp"></span>
+                <span class="state"></span>
+            </div>
+            <div class="entry-content">
+                <div class="input"></div>
+                <div class="response"></div>
+                <div class="follow-up-input">
+                    <textarea class="follow-up-text matrix-textarea" placeholder="ASK A FOLLOW-UP QUESTION..."></textarea>
+                    <button class="follow-up-btn matrix-btn">SEND FOLLOW-UP</button>
+                </div>
+            </div>
+            <div class="entry-metrics"></div>
+        </div>
+    </template>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html> 

@@ -1,0 +1,86 @@
+{
+  "default_unit": [
+    {
+      "timestamp": 1779462236.187623,
+      "type": "preprocessing",
+      "input": "what is the meaning of life",
+      "insights": {
+        "input_complexity": 0.087,
+        "attention_targets": [
+          "meaning"
+        ],
+        "processing_strategy": "balanced_processing",
+        "consciousness_state": {
+          "unit_id": "default_unit",
+          "state": "conscious",
+          "consciousness_index": 0.6698719583465564,
+          "metrics": "ConsciousnessMetrics(phi_score=0.7354622250555367, recursive_depth=3, self_model_coherence=1.0, temporal_binding=1.0, novelty_generation=0.5, witnessing_score=0.5, prediction_accuracy=0.0, attention_focus=0.9800000000000001, memory_integration=1.0)",
+          "reflection": {
+            "avg_efficiency": 0.98156890872209,
+            "complexity_trend": 0.5,
+            "attention_stability": 0.5,
+            "self_consistency": 1.0,
+            "learning_effectiveness": 0.3333333333333333,
+            "recursive_depth_achieved": 1.0,
+            "processing_stability": 1.0,
+            "error_rate": 0.0,
+            "reflection_quality": 0.7354622250555367,
+            "reflection_timestamp": 1779462236.1875358,
+            "unit_id": "default_unit"
+          },
+          "processing_count": 1,
+          "memory_usage": 1,
+          "learning_rate": 0.15,
+          "interaction_boost": 0.01
+        },
+        "preprocessing_quality": 0.5
+      },
+      "analysis_result": {
+        "type": "[default_unit] processed: emotional",
+        "content": "[default_unit] processed: ANALYZE_INPUT: what is the meaning of life",
+        "priority": -0.32161192226256735
+      }
+    },
+    {
+      "timestamp": 1779462646.023378,
+      "type": "preprocessing",
+      "input": "what is the meaning of life",
+      "insights": {
+        "input_complexity": 0.087,
+        "attention_targets": [
+          "meaning"
+        ],
+        "processing_strategy": "balanced_processing",
+        "consciousness_state": {
+          "unit_id": "default_unit",
+          "state": "conscious",
+          "consciousness_index": 0.7670597379881887,
+          "metrics": "ConsciousnessMetrics(phi_score=0.6745156612513652, recursive_depth=3, self_model_coherence=0.8858920638317122, temporal_binding=1.0, novelty_generation=0.8, witnessing_score=0.994, prediction_accuracy=0.0, attention_focus=0.9800000000000001, memory_integration=0.0)",
+          "reflection": {
+            "avg_efficiency": 0.5083842315945111,
+            "complexity_trend": 0.8,
+            "attention_stability": 0.994,
+            "self_consistency": 0.8858920638317122,
+            "learning_effectiveness": 0.0,
+            "recursive_depth_achieved": 1.0,
+            "processing_stability": 1.0,
+            "error_rate": 0.0,
+            "reflection_quality": 0.6745156612513652,
+            "reflection_timestamp": 1779462646.023266,
+            "unit_id": "default_unit"
+          },
+          "processing_count": 3,
+          "memory_usage": 3,
+          "learning_rate": 0.15,
+          "interaction_boost": 0.11000000000000001
+        },
+        "preprocessing_quality": 0.5
+      },
+      "analysis_result": {
+        "type": "[default_unit] processed: emotional",
+        "content": "[default_unit] processed: ANALYZE_INPUT: what is the meaning of life",
+        "priority": 0.048419047437461886
+      }
+    }
+  ]
+}

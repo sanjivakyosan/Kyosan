@@ -1,0 +1,22 @@
+"""Backward-compatible re-exports. Canonical: advanced_consciousness_interface."""
+
+from app.advanced_consciousness_interface import AdvancedConsciousnessInterface
+
+consciousness_interface = AdvancedConsciousnessInterface()
+
+get_all_units = consciousness_interface.get_all_units
+create_unit = consciousness_interface.create_unit
+process_input = consciousness_interface.process_input
+get_unit_state = consciousness_interface.get_unit_state
+get_processing_history = consciousness_interface.get_processing_history
+delete_unit = consciousness_interface.delete_unit
+apply_user_feedback = consciousness_interface.apply_user_feedback
+
+preprocess_input = consciousness_interface.preprocess_input
+guide_attention = consciousness_interface.guide_attention
+evaluate_and_select_output = consciousness_interface.evaluate_and_select_output
+modulate_learning = consciousness_interface.modulate_learning
+integrate_memory = consciousness_interface.integrate_memory
+enable_self_reflection = consciousness_interface.enable_self_reflection
+update_consciousness_feedback_loop = consciousness_interface.update_consciousness_feedback_loop
+process_with_full_integration = consciousness_interface.process_with_full_integration
