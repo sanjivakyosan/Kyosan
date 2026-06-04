@@ -1,3 +1,5 @@
+Copyright © Charles Roux 2026
+
 # Codebase Integrity & System Validation Report
 
 **Date:** 2026-03-01  

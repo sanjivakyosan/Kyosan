@@ -1,4 +1,13 @@
+/* Copyright © Charles Roux 2026 */
+
 /* Matrix-Style Consciousness Interface - KYOSAN */
+
+.copyright-footer {
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 0.75rem;
+    color: var(--matrix-text-muted);
+}
 
 :root {
     --matrix-green: #7C3AFA;

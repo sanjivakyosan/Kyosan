@@ -1,3 +1,5 @@
+Copyright © Charles Roux 2026
+
 # Optimal Parameter Settings for Consciousness Framework
 
 Recommended defaults for **thoughtful, coherent, self-reflective** dialogue with the LLM (e.g. Qwen 3.5 Plus). Tune for your use case.

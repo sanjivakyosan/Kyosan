@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Copyright © Charles Roux 2026
 """
 Test script to demonstrate the enhanced Memory Integration system
 """

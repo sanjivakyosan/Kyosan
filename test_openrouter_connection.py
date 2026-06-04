@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Copyright © Charles Roux 2026
 """OpenRouter API connection test using .env configuration."""
 
 import os

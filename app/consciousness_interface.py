@@ -1,3 +1,4 @@
+# Copyright © Charles Roux 2026
 """Backward-compatible re-exports. Canonical: advanced_consciousness_interface."""
 
 from app.advanced_consciousness_interface import AdvancedConsciousnessInterface

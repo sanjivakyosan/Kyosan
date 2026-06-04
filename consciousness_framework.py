@@ -1,3 +1,4 @@
+# Copyright © Charles Roux 2026
 """
 Enhanced Recursive Consciousness Theory - Complete Integrated Implementation
 ===========================================================================

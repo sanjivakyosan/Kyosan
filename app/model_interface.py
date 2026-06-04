@@ -1,3 +1,4 @@
+# Copyright © Charles Roux 2026
 import os
 from openai import OpenAI
 from openai.types.chat import ChatCompletionMessageParam
@@ -19,7 +20,7 @@ class ModelInterface:
         self.api_key = os.getenv('OPENROUTER_API_KEY', '').strip()
         self.api_base = os.getenv('OPENROUTER_API_BASE', 'https://openrouter.ai/api/v1').strip()
         self.model = os.getenv('OPENROUTER_MODEL', 'qwen/qwen3.5-plus-02-15').strip()
-        self.site_url = os.getenv('SITE_URL', 'http://localhost:5002')
+        self.site_url = os.getenv('SITE_URL', 'http://localhost:5001')
         self.site_name = os.getenv('SITE_NAME', 'Consciousness Framework')
 
         if not self.api_key:

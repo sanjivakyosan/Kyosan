@@ -1,3 +1,4 @@
+# Copyright © Charles Roux 2026
 from flask import Flask
 from flask_cors import CORS
 from flask_socketio import SocketIO

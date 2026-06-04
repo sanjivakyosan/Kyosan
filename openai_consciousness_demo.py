@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Copyright © Charles Roux 2026
 """
 Consciousness integration demo using .env for OpenRouter credentials.
 

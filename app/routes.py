@@ -1,3 +1,4 @@
+# Copyright © Charles Roux 2026
 from typing import Dict, Any, Tuple
 from flask import jsonify, request, render_template, Response
 from app import app, socketio, model_interface

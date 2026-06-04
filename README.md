@@ -1,3 +1,5 @@
+Copyright © Charles Roux 2026
+
 # Consciousness Framework
 
 An advanced AI consciousness integration system with 7 key integration principles.
@@ -51,6 +53,8 @@ javascript:(function(){fetch('http://localhost:5001/api/units').then(r=>window.l
 
 1. Copy the example env file: `cp .env.example .env`
 2. Set your `OPENROUTER_API_KEY` in `.env` (never commit `.env`)
+
+Runtime state under `consciousness_data/` is created locally on first run and is not committed (see `.gitignore`).
 
 ## 🔧 Manual Setup (if needed)
 

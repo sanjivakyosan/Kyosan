@@ -1,3 +1,4 @@
+# Copyright © Charles Roux 2026
 from app import app, socketio
 import os
 from dotenv import load_dotenv

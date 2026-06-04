@@ -1,3 +1,5 @@
+Copyright © Charles Roux 2026
+
 # OpenAI Integration with Advanced Consciousness Framework
 
 This document explains how to use the OpenAI API integration with the Advanced Consciousness Framework, which applies all 7 consciousness integration principles to external AI model interactions.

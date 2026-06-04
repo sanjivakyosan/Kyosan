@@ -1,3 +1,5 @@
+// Copyright © Charles Roux 2026
+
 // Initialize Socket.IO connection
 const socket = io();
 

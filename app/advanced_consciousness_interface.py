@@ -1,3 +1,4 @@
+# Copyright © Charles Roux 2026
 import logging
 from typing import Dict, Any, List, Optional, Tuple
 from consciousness_framework import ConsciousnessSystem, SelfModelingUnit
@@ -61,11 +62,16 @@ class AdvancedConsciousnessInterface:
             os.makedirs(self.storage_dir, exist_ok=True)
             
             # Initialize files if they don't exist
-            for file_path in [self.conversations_file, self.consciousness_states_file, 
-                            self.processing_history_file, self.session_logs_file]:
+            empty_files = {
+                self.conversations_file: {},
+                self.consciousness_states_file: {},
+                self.processing_history_file: {},
+                self.session_logs_file: [],
+            }
+            for file_path, empty_data in empty_files.items():
                 if not os.path.exists(file_path):
                     with open(file_path, 'w') as f:
-                        json.dump({}, f)
+                        json.dump(empty_data, f)
             
             logger.info(f"Storage initialized at {self.storage_dir}")
         except Exception as e:
@@ -92,7 +98,8 @@ class AdvancedConsciousnessInterface:
             # Load session logs
             if os.path.exists(self.session_logs_file):
                 with open(self.session_logs_file, 'r') as f:
-                    self.session_logs = json.load(f)
+                    loaded = json.load(f)
+                    self.session_logs = loaded if isinstance(loaded, list) else []
             
             # Log startup session
             self._log_session_event("startup", {"timestamp": time.time()})

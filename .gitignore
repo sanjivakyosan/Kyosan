@@ -14,6 +14,9 @@ __pycache__/
 # Runtime / local
 consciousness_server.log
 consciousness_server.pid
+consciousness_state.json
+consciousness_data/*.json
+consciousness_data/export_*.json
 .DS_Store
 
 # macOS app bundle (use start_consciousness_app.sh instead)
